@@ -1,0 +1,27 @@
+﻿@using nQueens.lib
+@model nQueens.lib.Board
+
+<hr />
+<div>
+  <table border="1">
+    @for (var i = 0; i < Model.N; i++)
+    {
+      var currentQueen = Model[i];
+      <tr>
+        @for (var j = 0; j < Model.N; j++)
+        {
+          <td>
+            @if (j == currentQueen)
+            {
+              <span>Q</span>
+            }
+            else
+            {
+              <span>&nbsp;</span>
+            }
+          </td>
+        }
+      </tr>
+    }
+  </table>
+</div>
