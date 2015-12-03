@@ -1,8 +1,16 @@
 ﻿@using nQueens.lib
 @model nQueens.lib.Board
 
-<hr />
-<div>
+@*http://stackoverflow.com/questions/20456694/grid-of-responsive-squares/20457076#20457076*@
+
+<div class="box">
+
+  <div class="square">
+    
+  </div>
+
+
+
   <table border="1">
     @for (var i = 0; i < Model.N; i++)
     {
