@@ -1,5 +1,5 @@
 Order        < ------  Ordinary Queens  ------ >              < ----- Superqueens ----- >
-(“N”)      Total Solutions       Unique Solutions            Total Sol.         Unique Sol.
+('N')      Total Solutions       Unique Solutions            Total Sol.         Unique Sol.
 ------------------------------------------------------------------------------------------
 1                        1                      1                    1                   1
 2                        0                      0                    0                   0
