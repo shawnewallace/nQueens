@@ -1,6 +1,8 @@
 using Xunit;
 
-namespace nqueens.lib.tests {
+namespace nqueens.lib.tests
+{
+
   public class BoardTests {
     [Fact]
     public void ABoardCanBeInitializedWithSize () {
@@ -31,6 +33,23 @@ namespace nqueens.lib.tests {
       var board = new NQueensBoard (values);
 
       Assert.Equal (valueLength, board.N);
+    }
+
+    [Fact]
+    public void SetQueenPutsQueenInCorrectPosition() {
+      var board = new NQueensBoard(8);
+
+      board.SetQueen(1, 3);
+
+      Assert.True(board.IsQueenAt(1, 3));
+    }
+
+    [Fact]
+    public void ToIntArrayReturnsValidList() {
+      var board = new NQueensBoard(4);
+      var result = board.ToIntArray();
+
+      Assert.Equal(4, result.Length);
     }
   }
 }
