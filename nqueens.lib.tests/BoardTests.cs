@@ -1,4 +1,5 @@
 using Xunit;
+using nqueens.lib.models;
 
 namespace nqueens.lib.tests
 {

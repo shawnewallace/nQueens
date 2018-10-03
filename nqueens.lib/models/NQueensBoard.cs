@@ -1,6 +1,6 @@
 using System;
 
-namespace nqueens.lib.tests {
+namespace nqueens.lib.models {
   /*
   New() creates an 8x8 board.
   board.Queens() returns the number of queens that are currently placed on the board. We will use this function to check if we have found a place for all the queens.

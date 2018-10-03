@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using nqueens.lib.tests;
+using nqueens.lib.models;
 
 namespace nqueens.lib
 {
@@ -40,29 +41,38 @@ namespace nqueens.lib
 
     public List<NQueensBoard> Solve () {
       var board = InitializeBoard ();
-      var tries = 1;
+      _solutions = new List<NQueensBoard> ();
+      var tries = 0;
 
       do {
-        board = null;
+        if(IsASolution(board)) _solutions.Add(board);
+        board = GetNextBoard(board);
+        tries++;
       } while (board != null);
 
-      return new List<NQueensBoard> ();
+      return _solutions;
+    }
+
+    private NQueensBoard GetNextBoard(NQueensBoard board)
+    {
+      var pieces = board.ToIntArray();
+      var nextPerm = KnuthsPermutationsCalculator<int>.GetNextPermutation(pieces);
+
+      if (nextPerm == null) return null;
+
+      return new NQueensBoard(nextPerm.ToArray());
+    }
+
+    private bool IsASolution(NQueensBoard board)
+    {
+      return NQueensSolutionChecker.IsSolution(board);
     }
 
     private NQueensBoard InitializeBoard () {
-      var result = new NQueensBoard (N);
-
-      return result;
-    }
-  }
-
-  public static class NQueensSolutionChecker {
-    public static bool IsSolution (NQueensBoard board) {
-      var uniqueValues = board.ToIntArray ().Select (v => v).Distinct ();
-
-      if (uniqueValues.Count () != board.N) return false;
-
-      return true;
+      var board = new NQueensBoard(N);
+      for (int i = 0; i < N; i++)
+        board.SetQueen(i, i);
+      return board;
     }
   }
 }
