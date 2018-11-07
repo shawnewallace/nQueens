@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using nqueens.lib.models;
 
-namespace nqueens.lib
-{
+namespace nqueens.lib {
 
   /*
   Data representation board = [1, 2, 3, etc...] where each column of N will note the location of
@@ -39,39 +38,98 @@ namespace nqueens.lib
       _totalPermutations = MathNet.Numerics.Combinatorics.Permutations (N);
     }
 
-    public List<NQueensBoard> Solve () {
+    public List<NQueensBoard> Solve (bool uniqueSolutions = false) {
       var board = InitializeBoard ();
       _solutions = new List<NQueensBoard> ();
       var tries = 0;
 
       do {
-        if(IsASolution(board)) _solutions.Add(board);
-        board = GetNextBoard(board);
+
+        if (uniqueSolutions) {
+          if (IsAUniqueSolution (board)) _solutions.Add (board);
+        }
+        else {
+          if (IsASolution (board)) _solutions.Add (board);
+        }
+
+        board = GetNextBoard (board);
         tries++;
       } while (board != null);
 
       return _solutions;
     }
 
-    private NQueensBoard GetNextBoard(NQueensBoard board)
-    {
-      var pieces = board.ToIntArray();
-      var nextPerm = KnuthsPermutationsCalculator<int>.GetNextPermutation(pieces);
+    private NQueensBoard GetNextBoard (NQueensBoard board) {
+      var pieces = board.ToIntArray ();
+      var nextPerm = KnuthsPermutationsCalculator<int>.GetNextPermutation (pieces);
 
       if (nextPerm == null) return null;
 
-      return new NQueensBoard(nextPerm.ToArray());
+      return new NQueensBoard (nextPerm.ToArray ());
     }
 
-    private bool IsASolution(NQueensBoard board)
+    private bool IsASolution (NQueensBoard board) {
+      return NQueensSolutionChecker.IsSolution (board);
+    }
+
+    private bool IsAUniqueSolution(NQueensBoard board)
     {
-      return NQueensSolutionChecker.IsSolution(board);
+      if (!IsASolution(board)) return false;
+
+      return IsUnique(board);
+    }
+
+    private  bool IsUnique(NQueensBoard board)
+    {
+      if (IsAlreadySolution(board)) return false;
+
+      var rotator = new NQueensBoardTransformer();
+
+      var copy = rotator.ReflectOverXAxis(board);
+      if (IsAlreadySolution(copy)) return false;
+
+      copy = rotator.ReflectOverYAxis(board);
+      if (IsAlreadySolution(copy)) return false;
+
+      copy = rotator.ReflectOverYEqualsX(board);
+      if (IsAlreadySolution(copy)) return false;
+
+      copy = rotator.ReflectOverYEqualsMinusX(board);
+      if (IsAlreadySolution(copy)) return false;
+
+      copy = rotator.Rotate90Degrees(board);
+      if (IsAlreadySolution(copy)) return false;
+
+      copy = rotator.Rotate180Degrees(board);
+      if (IsAlreadySolution(copy)) return false;
+
+      copy = rotator.Rotate270Degrees(board);
+      if (IsAlreadySolution(copy)) return false;
+      
+      return true;
+    }
+
+    private bool IsAlreadySolution(NQueensBoard potantialSolution)
+    {
+      return _solutions.Any(solution => AreEqualBoards(potantialSolution, solution));
+    }
+
+    private static bool AreEqualBoards(NQueensBoard left, NQueensBoard right)
+    {
+      if (left.N != right.N) return false;
+
+      for (var i = 0; i < left.N; i++)
+      {
+        if (left[i] != right[i]) return false;
+      }
+
+      return true;
     }
 
     private NQueensBoard InitializeBoard () {
-      var board = new NQueensBoard(N);
+      var board = new NQueensBoard (N);
       for (int i = 0; i < N; i++)
-        board.SetQueen(i, i);
+        board.SetQueen (i, i);
       return board;
     }
   }

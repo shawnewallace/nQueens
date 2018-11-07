@@ -14,6 +14,12 @@ namespace nqueens.lib.models {
 
     private int[] _board;
 
+    public int this[int i]
+    {
+      get { return _board[i]; }
+      set { _board[i] = value; }
+    }
+
     public bool IsQueenAt(int x, int y)
     {
       return _board[x] == y;
