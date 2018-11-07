@@ -26,14 +26,15 @@ namespace nqueens.csl {
       var numDash = Math.Ceiling((((2*N)+1) - boardDelim.Length)/2.0);
 
       var dashes = new String('=', Convert.ToInt32(numDash));
-      var finalDelim = dashes + boardDelim + dashes;
+      var finalDelim = ' ' + dashes + boardDelim + dashes;
       //var finalDelim = numDash.ToString();
 
       Console.OutputEncoding = Encoding.UTF8;
       Console.WriteLine(finalDelim);
-      Console.WriteLine(" " +string.Join(" ", board.ToIntArray()));
+      Console.WriteLine("  " +string.Join(" ", board.ToIntArray()));
       for (var i = 0; i < N; i++)
       {
+        Console.Write(i);
         for (var j = 0; j < N; j++)
         {
           Console.Write("|");
@@ -41,6 +42,7 @@ namespace nqueens.csl {
         }
         Console.WriteLine("|");
       }
+      Console.WriteLine("\n");
     }
   }
 }
