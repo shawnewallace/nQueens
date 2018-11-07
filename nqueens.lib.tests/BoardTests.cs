@@ -48,7 +48,7 @@ namespace nqueens.lib.tests
     [Fact]
     public void ToIntArrayReturnsValidList() {
       var board = new NQueensBoard(4);
-      var result = board.ToIntArray();
+      var result = board.ToIntArray;
 
       Assert.Equal(4, result.Length);
     }

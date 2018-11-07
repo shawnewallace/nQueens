@@ -31,7 +31,7 @@ namespace nqueens.csl {
 
       Console.OutputEncoding = Encoding.UTF8;
       Console.WriteLine(finalDelim);
-      Console.WriteLine("  " +string.Join(" ", board.ToIntArray()));
+      Console.WriteLine("  " +string.Join(" ", board.ToIntArray));
       for (var i = 0; i < N; i++)
       {
         Console.Write(i);

@@ -60,7 +60,7 @@ namespace nqueens.lib {
     }
 
     private NQueensBoard GetNextBoard (NQueensBoard board) {
-      var pieces = board.ToIntArray ();
+      var pieces = board.ToIntArray ;
       var nextPerm = KnuthsPermutationsCalculator<int>.GetNextPermutation (pieces);
 
       if (nextPerm == null) return null;

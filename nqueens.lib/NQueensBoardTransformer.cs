@@ -37,7 +37,7 @@ public interface IBoardReflector
 
     public NQueensBoard ReflectOverYAxis(NQueensBoard board)
     {
-      var values = board.ToIntArray().Reverse().ToArray();
+      var values = board.ToIntArray.Reverse().ToArray();
       return new NQueensBoard(values);
     }
 

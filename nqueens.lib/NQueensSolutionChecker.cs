@@ -25,8 +25,8 @@ namespace nqueens.lib
     {
       for (var i = 0; i < col; i++)
       {
-        var c1 = new Coordinate(i, board.ToIntArray()[i]);
-        var c2 = new Coordinate(col, board.ToIntArray()[col]);
+        var c1 = new Coordinate(i, board.ToIntArray[i]);
+        var c2 = new Coordinate(col, board.ToIntArray[col]);
 
         if (Coordinate.AreEqual(c1, c2))
           return true;
@@ -36,7 +36,7 @@ namespace nqueens.lib
     }
 
     private static bool CheckAcross (NQueensBoard board) {
-      var uniqueValues = board.ToIntArray ().Select (v => v).Distinct ();
+      var uniqueValues = board.ToIntArray .Select (v => v).Distinct ();
 
       return (uniqueValues.Count () != board.N);
     }
