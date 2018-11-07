@@ -5,11 +5,11 @@ using nqueens.lib.models;
 
 namespace nqueens.csl {
   public class Program {
-    private const int N = 10;
+    private const int N = 8;
 
     public static void Main (string[] args) {
       var solver = new NQueensSolver (N);
-      var results = solver.Solve ();
+      var results = solver.Solve (true);
 
       foreach (var result in results) {
         WriteBoard(result);
