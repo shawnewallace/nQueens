@@ -9,7 +9,7 @@ namespace nqueens.csl {
 
     public static void Main (string[] args) {
       var solver = new NQueensSolver (N);
-      var results = solver.Solve (true);
+      var results = solver.Solve (false);
 
       foreach (var result in results) {
         WriteBoard(result);
