@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using nqueens.lib;
 using nqueens.lib.models;
@@ -11,12 +13,29 @@ namespace nqueens.csl
 
     public static void Main(string[] args)
     {
-      for (var n = 1; n <= 11; n++)
+      int nMax = 10;
+      const int x = 3;
+
+      for (var n = 1; n <= nMax; n++)
       {
         var solver = new NQueensSolver(n: n);
-        var results = solver.Solve(uniqueSolutions: true);
+        var watch = Stopwatch.StartNew();
+        var results = new List<NQueensBoard>();
 
-        Console.WriteLine($"There were {results.Count, 3} total UNIQUE solutions for N of {n, 3}.");
+        try
+        {
+          results = solver.Solve(calculateUniqueSolutionsOnly: true);
+        }
+        finally
+        {
+          watch.Stop();
+        }
+
+        Console.WriteLine($"There were {results.Count,3} total UNIQUE solutions for N of {n, x} executed in {watch.ElapsedMilliseconds,6} ms.");
+        // foreach (var result in results)
+        // {
+        //   Console.WriteLine($"\t{result}");
+        // }
       }
 
 

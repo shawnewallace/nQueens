@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using nqueens.lib.models;
 
@@ -38,14 +39,14 @@ namespace nqueens.lib {
       _totalPermutations = MathNet.Numerics.Combinatorics.Permutations (N);
     }
 
-    public List<NQueensBoard> Solve (bool uniqueSolutions = false) {
+    public List<NQueensBoard> Solve (bool calculateUniqueSolutionsOnly = false) {
       var board = InitializeBoard ();
       _solutions = new List<NQueensBoard> ();
       var tries = 0;
 
       do {
 
-        if (uniqueSolutions) {
+        if (calculateUniqueSolutionsOnly) {
           if (IsAUniqueSolution (board)) _solutions.Add (board);
         }
         else {

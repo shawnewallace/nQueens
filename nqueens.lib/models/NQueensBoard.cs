@@ -16,6 +16,11 @@ namespace nqueens.lib.models {
 
     public int[] ToIntArray => _board;
 
+    public override string ToString()
+    {
+      return string.Join(",", _board);
+    }
+
     public NQueensBoard (int n) {
       N = n;
       _board = new int[N];
