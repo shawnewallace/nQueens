@@ -10,7 +10,7 @@ namespace nqueens.lib.tests
     public void IsSafe (int[] values, bool expected) {
       var board = new NQueensBoard(values);
 
-      Assert.False(expected);
+      Assert.True(expected);
     }
   }
 }
