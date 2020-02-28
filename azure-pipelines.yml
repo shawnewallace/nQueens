@@ -19,5 +19,14 @@ steps:
       inputs:
         version: '3.1.x'
         packageType: sdk
+
     - script: dotnet build --configuration $(buildConfiguration)
       displayName:    'dotnet build $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: "Run ALL Tests"
+      inputs:
+        command: test
+        projects: '**/*tests/*.csproj'
+        arguments: '--configuration $(buildConfiguraton'
+
