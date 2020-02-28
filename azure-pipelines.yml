@@ -28,7 +28,7 @@ steps:
       inputs:
         command: test
         projects: '**/*tests/*.csproj'
-        arguments: '--configuration $(buildConfiguraton'
+        arguments: '--verbosity normal --configuration $(buildConfiguraton'
 
     # - task: DotNetCoreCLI@2
     #   displayName: "Publish"
