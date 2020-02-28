@@ -8,7 +8,9 @@ namespace nqueens.lib.tests
     [Theory]
     [InlineData(new int[]{ 0,1 }, false)]
     public void IsSafe (int[] values, bool expected) {
-      var board = new NQueensBoard(values); 
+      var board = new NQueensBoard(values);
+
+      Assert.False(expected);
     }
   }
 }

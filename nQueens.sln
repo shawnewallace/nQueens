@@ -1,0 +1,40 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nqueens.lib", "nqueens.lib\nqueens.lib.csproj", "{CE6A0057-5A89-4977-81C1-E732B577A83C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nqueens.lib.tests", "nqueens.lib.tests\nqueens.lib.tests.csproj", "{DC80C12E-8DED-4BFF-893F-4D472E0BAF7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nQueens.csl", "nQueens.csl\nQueens.csl.csproj", "{391F02BE-3640-4F0D-ABE7-B39559D6154A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "knuther", "knuther\knuther.csproj", "{869A8293-C379-42C2-930D-57C6CF1DABB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC154924-358D-4BCD-9C18-33FF02249A91}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE6A0057-5A89-4977-81C1-E732B577A83C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE6A0057-5A89-4977-81C1-E732B577A83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE6A0057-5A89-4977-81C1-E732B577A83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE6A0057-5A89-4977-81C1-E732B577A83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC80C12E-8DED-4BFF-893F-4D472E0BAF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC80C12E-8DED-4BFF-893F-4D472E0BAF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC80C12E-8DED-4BFF-893F-4D472E0BAF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC80C12E-8DED-4BFF-893F-4D472E0BAF7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391F02BE-3640-4F0D-ABE7-B39559D6154A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391F02BE-3640-4F0D-ABE7-B39559D6154A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391F02BE-3640-4F0D-ABE7-B39559D6154A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391F02BE-3640-4F0D-ABE7-B39559D6154A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{869A8293-C379-42C2-930D-57C6CF1DABB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{869A8293-C379-42C2-930D-57C6CF1DABB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{869A8293-C379-42C2-930D-57C6CF1DABB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{869A8293-C379-42C2-930D-57C6CF1DABB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
